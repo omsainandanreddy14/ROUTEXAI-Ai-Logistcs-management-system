@@ -1,0 +1,113 @@
+{
+  "model_name": "GradientBoosting",
+  "dataset_type": "SYNTHETIC",
+  "train_samples": 8000,
+  "test_samples": 2000,
+  "target": "actualDurationMin",
+  "features": {
+    "numerical": [
+      "distanceKm",
+      "expectedDurationMin",
+      "vehicleCapacityKg",
+      "cargoWeightKg",
+      "cargoVolumeM3",
+      "packageCount",
+      "temperatureC",
+      "humidityPercent",
+      "rainfallMm",
+      "windSpeedKmph",
+      "visibilityKm",
+      "routeScore",
+      "driverExperienceYears",
+      "vehicleAgeYears",
+      "pickupHour",
+      "dayOfWeek",
+      "month",
+      "isWeekend"
+    ],
+    "categorical": [
+      "shipmentType",
+      "priority",
+      "vehicleType",
+      "trafficLevel",
+      "weatherCondition",
+      "weatherRisk",
+      "delayRisk"
+    ],
+    "total_raw_count": 25
+  },
+  "baseline_ors_metrics": {
+    "mae_min": 49.2,
+    "rmse_min": 71.83,
+    "medae_min": 29.75,
+    "r2_score": 0.9961
+  },
+  "model_metrics": {
+    "mae_min": 19.96,
+    "rmse_min": 28.11,
+    "medae_min": 14.83,
+    "r2_score": 0.9994,
+    "cv_mae_mean_min": 20.16,
+    "cv_mae_std_min": 0.48
+  },
+  "all_model_comparison": {
+    "RandomForest": {
+      "cv_mae_mean": 22.990155000000023,
+      "cv_mae_std": 0.3159653133479331,
+      "test_mae": 22.837726000000035,
+      "test_rmse": 37.51526365844978,
+      "test_medae": 15.094999999999985,
+      "test_r2": 0.9989363538225321
+    },
+    "GradientBoosting": {
+      "cv_mae_mean": 20.16250268788043,
+      "cv_mae_std": 0.4799833397223377,
+      "test_mae": 19.956576513544473,
+      "test_rmse": 28.110608885365266,
+      "test_medae": 14.834601105990487,
+      "test_r2": 0.9994027974094369
+    }
+  },
+  "top_features": [
+    {
+      "feature": "expectedDurationMin",
+      "importance": 0.9973425533312289
+    },
+    {
+      "feature": "routeScore",
+      "importance": 0.0009438818213549141
+    },
+    {
+      "feature": "priority_LOW",
+      "importance": 0.000683166027460777
+    },
+    {
+      "feature": "priority_URGENT",
+      "importance": 0.0003316315009774601
+    },
+    {
+      "feature": "delayRisk_LOW",
+      "importance": 0.00019600964238438573
+    },
+    {
+      "feature": "trafficLevel_SEVERE",
+      "importance": 0.0001345268404378536
+    },
+    {
+      "feature": "priority_MEDIUM",
+      "importance": 0.00011578561679508951
+    },
+    {
+      "feature": "weatherRisk_HIGH",
+      "importance": 8.126262451418034e-05
+    },
+    {
+      "feature": "driverExperienceYears",
+      "importance": 4.5527890731285096e-05
+    },
+    {
+      "feature": "priority_HIGH",
+      "importance": 3.375242753325859e-05
+    }
+  ]
+}

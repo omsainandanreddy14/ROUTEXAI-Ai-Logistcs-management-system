@@ -1,0 +1,157 @@
+{
+  "model_name": "GradientBoostingClassifier",
+  "model_version": "1.0.0",
+  "dataset_path": "ml\\data\\processed\\routexai_ml_dataset.csv",
+  "dataset_type": "SYNTHETIC",
+  "target": "delayStatus",
+  "positive_class": "DELAYED",
+  "train_samples": 8000,
+  "test_samples": 2000,
+  "class_distribution": {
+    "ON_TIME_count": 5392,
+    "DELAYED_count": 4608,
+    "ON_TIME_percent": 53.92,
+    "DELAYED_percent": 46.08
+  },
+  "features": {
+    "numerical": [
+      "distanceKm",
+      "expectedDurationMin",
+      "vehicleCapacityKg",
+      "cargoWeightKg",
+      "cargoVolumeM3",
+      "packageCount",
+      "temperatureC",
+      "humidityPercent",
+      "rainfallMm",
+      "windSpeedKmph",
+      "visibilityKm",
+      "routeScore",
+      "driverExperienceYears",
+      "vehicleAgeYears",
+      "pickupHour",
+      "dayOfWeek",
+      "month",
+      "isWeekend"
+    ],
+    "categorical": [
+      "shipmentType",
+      "priority",
+      "vehicleType",
+      "trafficLevel",
+      "weatherCondition",
+      "weatherRisk",
+      "delayRisk"
+    ],
+    "total_raw_count": 25
+  },
+  "excluded_leakage_features": [
+    "actualDurationMin",
+    "deliveryTimestamp",
+    "delayMinutes",
+    "delayStatus"
+  ],
+  "risk_thresholds": {
+    "LOW": "< 0.30",
+    "MEDIUM": "0.30 to < 0.60",
+    "HIGH": ">= 0.60"
+  },
+  "model_metrics": {
+    "accuracy": 0.9065,
+    "precision": 0.9181,
+    "recall": 0.8753,
+    "f1": 0.8962,
+    "roc_auc": 0.9704
+  },
+  "confusion_matrix": [
+    [
+      1006,
+      72
+    ],
+    [
+      115,
+      807
+    ]
+  ],
+  "experiment_comparison": {
+    "experiment_A_without_delayRisk": {
+      "accuracy": 0.904,
+      "precision": 0.9176,
+      "recall": 0.8698,
+      "f1": 0.8931,
+      "roc_auc": 0.9687
+    },
+    "experiment_B_with_delayRisk": {
+      "accuracy": 0.9065,
+      "precision": 0.9181,
+      "recall": 0.8753,
+      "f1": 0.8962,
+      "roc_auc": 0.9704
+    }
+  },
+  "all_model_comparison": {
+    "LogisticRegression": {
+      "accuracy": 0.866,
+      "precision": 0.8457,
+      "recall": 0.8677,
+      "f1": 0.8565,
+      "roc_auc": 0.9426
+    },
+    "RandomForestClassifier": {
+      "accuracy": 0.904,
+      "precision": 0.9056,
+      "recall": 0.8839,
+      "f1": 0.8946,
+      "roc_auc": 0.9653
+    },
+    "GradientBoostingClassifier": {
+      "accuracy": 0.9065,
+      "precision": 0.9181,
+      "recall": 0.8753,
+      "f1": 0.8962,
+      "roc_auc": 0.9704
+    }
+  },
+  "top_features": [
+    {
+      "feature": "cat__delayRisk_LOW",
+      "importance": 0.3370606722740921
+    },
+    {
+      "feature": "cat__priority_LOW",
+      "importance": 0.17345474860596577
+    },
+    {
+      "feature": "num__routeScore",
+      "importance": 0.15737240196183958
+    },
+    {
+      "feature": "num__expectedDurationMin",
+      "importance": 0.08779689376326077
+    },
+    {
+      "feature": "cat__priority_HIGH",
+      "importance": 0.05089000072733289
+    },
+    {
+      "feature": "cat__priority_URGENT",
+      "importance": 0.04619589917635286
+    },
+    {
+      "feature": "num__distanceKm",
+      "importance": 0.043647834346706375
+    },
+    {
+      "feature": "num__driverExperienceYears",
+      "importance": 0.03520862645248
+    },
+    {
+      "feature": "cat__trafficLevel_LOW",
+      "importance": 0.024693029755826695
+    },
+    {
+      "feature": "num__visibilityKm",
+      "importance": 0.009262307680844623
+    }
+  ]
+}

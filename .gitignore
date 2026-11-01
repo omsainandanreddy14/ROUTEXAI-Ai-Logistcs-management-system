@@ -1,0 +1,62 @@
+# ==============================================================================
+# RouteXAI — Git Ignore Configuration
+# ==============================================================================
+
+# Dependencies
+node_modules/
+*/node_modules/
+.pnp
+.pnp.js
+
+# Environment Variables & Secrets (CRITICAL)
+.env
+.env.*
+!.env.example
+*.local
+
+# Database Dumps & Pre-Repair Snapshots
+backend/backup/
+*.dump
+*.sql
+*.sqlite
+
+# Production Build Outputs
+dist/
+dist-ssr/
+build/
+out/
+
+# Python Virtual Environments & Bytecode
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+ENV/
+.pytest_cache/
+
+# Runtime Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS & Editor Specific Files
+.DS_Store
+Thumbs.db
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary Files
+*.tmp
+temp/
+tmp/

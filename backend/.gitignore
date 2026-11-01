@@ -1,0 +1,8 @@
+# Backend Secrets & Backups
+.env
+.env.*
+!.env.example
+node_modules/
+backup/
+*.dump
+*.log

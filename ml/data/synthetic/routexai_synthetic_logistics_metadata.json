@@ -1,0 +1,17 @@
+{
+  "datasetName": "RouteXAI Synthetic Logistics Dataset",
+  "datasetType": "SYNTHETIC",
+  "purpose": "Initial ML development for ETA prediction (Phase 3C) and delay-risk prediction (Phase 3D)",
+  "generationDate": "2026-09-24 18:16:17",
+  "randomSeed": 42,
+  "numberOfRecords": 10000,
+  "numberOfColumns": 39,
+  "delayThresholdMinutes": 20.0,
+  "classDistribution": {
+    "ON_TIME": 5392,
+    "DELAYED": 4608,
+    "onTimePercentage": 53.92,
+    "delayedPercentage": 46.08
+  },
+  "syntheticWarning": "IMPORTANT: This dataset is 100% SYNTHETIC generated for initial ML pipeline architecture testing and MUST NOT be presented as real historical RouteXAI shipment operations or saved in MongoDB."
+}

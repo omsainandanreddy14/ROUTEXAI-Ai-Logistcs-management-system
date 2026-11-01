@@ -1,0 +1,14 @@
+{
+  "name": "routexai-platform",
+  "version": "1.0.0",
+  "description": "RouteXAI — AI-Powered Smart Logistics & Route Intelligence Platform",
+  "scripts": {
+    "start": "start-all.bat",
+    "backend": "cd backend && node server.js",
+    "frontend": "cd frontend && npm run dev",
+    "ml": "py -m uvicorn ml.services.eta_api:app --host 127.0.0.1 --port 8000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

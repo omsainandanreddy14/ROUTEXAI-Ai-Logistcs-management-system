@@ -1,0 +1,77 @@
+{
+  "datasetName": "RouteXAI Synthetic Logistics Dataset Report",
+  "datasetPath": "ml/data/synthetic/routexai_synthetic_logistics.csv",
+  "totalRecords": 10000,
+  "totalColumns": 39,
+  "missingValues": 0,
+  "targetColumns": {
+    "etaRegressionTarget": "actualDurationMin",
+    "delayClassificationTarget": "delayStatus"
+  },
+  "classDistributions": {
+    "delayStatus": {
+      "ON_TIME": 5392,
+      "DELAYED": 4608
+    },
+    "vehicleType": {
+      "TRUCK": 3846,
+      "MINI_TRUCK": 3678,
+      "HEAVY_TRUCK": 1580,
+      "VAN": 768,
+      "BIKE": 128
+    },
+    "priority": {
+      "MEDIUM": 5030,
+      "HIGH": 2010,
+      "LOW": 1945,
+      "URGENT": 1015
+    },
+    "trafficLevel": {
+      "LOW": 3680,
+      "MEDIUM": 3507,
+      "HIGH": 2115,
+      "SEVERE": 698
+    },
+    "weatherCondition": {
+      "CLEAR": 4992,
+      "CLOUDY": 2003,
+      "RAIN": 1048,
+      "OVERCAST": 874,
+      "HEAVY_RAIN": 516,
+      "FOG": 383,
+      "STORM": 184
+    },
+    "weatherRisk": {
+      "LOW": 6995,
+      "MEDIUM": 1922,
+      "HIGH": 1083
+    }
+  },
+  "numericalStatistics": {
+    "distanceKm": {
+      "min": 1.26,
+      "max": 3175.53,
+      "mean": 915.69,
+      "median": 854.57,
+      "std": 808.39
+    },
+    "expectedDurationMin": {
+      "min": 19.4,
+      "max": 6371.7,
+      "mean": 1288.47,
+      "median": 1157.65
+    },
+    "actualDurationMin": {
+      "min": 14.9,
+      "max": 6430.3,
+      "mean": 1316.53,
+      "median": 1180.5
+    },
+    "delayMinutes": {
+      "min": -227.6,
+      "max": 464.0,
+      "mean": 28.06,
+      "median": 15.1
+    }
+  }
+}
