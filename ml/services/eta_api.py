@@ -4,12 +4,21 @@ import joblib
 import pandas as pd
 from typing import Optional
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 app = FastAPI(
     title="RouteXAI Smart Logistics Intelligence Microservice",
     description="Phase 3C ETA Regression & Phase 3D Delay Risk Classification (Trained on SYNTHETIC dataset)",
     version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Global variables for models and metadata

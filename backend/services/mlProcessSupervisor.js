@@ -43,8 +43,16 @@ const ensureMLServiceRunning = async () => {
     return initialHealth;
   }
 
-  console.log(`[ML Supervisor] FastAPI microservice is offline (${initialHealth.error}). Attempting to auto-spawn...`);
+  console.log(`[ML Supervisor] FastAPI microservice is offline (${initialHealth.error}).`);
 
+  // In production or when pointing to a remote service, do not attempt local child process spawn
+  const isLocalEndpoint = FASTAPI_HEALTH_URL.includes('127.0.0.1') || FASTAPI_HEALTH_URL.includes('localhost');
+  if (process.env.NODE_ENV === 'production' || !isLocalEndpoint) {
+    console.warn(`[ML Supervisor] Remote FastAPI service at ${FASTAPI_HEALTH_URL} is currently unreachable. Skipping local process spawn.`);
+    return initialHealth;
+  }
+
+  console.log(`[ML Supervisor] Attempting local development auto-spawn...`);
   const rootDir = path.resolve(__dirname, '..', '..');
 
   try {
