@@ -39,21 +39,17 @@ app.use('/api/eta-monitoring', require('./routes/etaMonitoringRoutes'));
 app.use('/api/pricing', require('./routes/pricingRoutes'));
 
 const { checkMLHealth, ensureMLServiceRunning } = require('./services/mlProcessSupervisor');
+const { getHealthStatus } = require('./controllers/healthController');
+
+// Deployment Health Monitoring Endpoints
+app.get('/health', getHealthStatus);
+app.get('/api/health', getHealthStatus);
 
 app.get('/api/ml/health', async (req, res) => {
   const status = await checkMLHealth(2000);
   res.json({
     success: true,
     ...status
-  });
-});
-
-app.get('/api/health', (req, res) => {
-  res.json({
-    status: 'OK',
-    service: 'RouteXAI Backend Engine',
-    phase: 'Phase 3A - Real-Time Weather Intelligence Engine',
-    timestamp: new Date()
   });
 });
 
