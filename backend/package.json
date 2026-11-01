@@ -7,9 +7,11 @@
     "start": "node server.js",
     "dev": "nodemon server.js",
     "seed": "node seed.js",
+    "seed:owner": "node scripts/seed_production_owner.js",
     "clear": "node clear.js",
     "test": "node test_health_endpoint.js",
-    "test:health": "node test_health_endpoint.js"
+    "test:health": "node test_health_endpoint.js",
+    "test:auth": "node test_auth_production.js"
   },
   "dependencies": {
     "axios": "^1.20.0",
