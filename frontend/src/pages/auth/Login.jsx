@@ -57,7 +57,9 @@ const Login = () => {
       else navigate('/customer/dashboard');
     } catch (err) {
       if (!err.response) {
-        setError('Cannot reach backend server. Please verify the backend server is running on port 5000.');
+        setError('Cannot reach backend server. Please verify the backend server is running on port 5000 or Render backend is accessible.');
+      } else if (err.response.status >= 500 && !err.response?.data?.message) {
+        setError('RouteXAI Backend server is offline or unreachable on port 5000. Please launch start-all.bat or check your backend connection.');
       } else {
         setError(err.response?.data?.message || 'Login failed. Please check credentials.');
       }
